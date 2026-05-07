@@ -1,217 +1,530 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriel de Melo</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:'Poppins', sans-serif;
-        }
-        
-        body{
-            min-height:100vh;
+        body {
+            min-height: 100vh;
             background:
-            linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-            url('https://images.unsplash.com/photo-1511886929837-354d827aae26?q=80&w=1974&auto=format&fit=crop');
-            background-size:cover;
-            background-position:center;
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1511886929837-354d827aae26?q=80&w=1974&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
         }
-        
+
         /* MENU */
-        
-        header{
-            width:100%;
-            padding:20px 8%;
-            background:rgba(0,0,0,0.65);
-            backdrop-filter:blur(8px);
-            border-bottom:2px solid #d4af37;
+
+        header {
+            width: 100%;
+            padding: 20px 8%;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            border-bottom: 2px solid #d4af37;
         }
-        
-        .navbar{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        .logo{
-            color:#fff;
-            font-size:32px;
-            font-weight:700;
-            letter-spacing:2px;
+
+        .logo {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
         }
-        
-        .logo span{
-            color:#d4af37;
+
+        .logo span {
+            color: #d4af37;
         }
-        
-        .menu{
-            display:flex;
-            list-style:none;
-            gap:35px;
+
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
         }
-        
-        .menu li a{
-            text-decoration:none;
-            color:#fff;
-            font-size:17px;
-            font-weight:500;
-            transition:0.3s;
-            position:relative;
+
+        .menu li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
         }
-        
-        .menu li a::after{
-            content:'';
-            position:absolute;
-            left:0;
-            bottom:-6px;
-            width:0%;
-            height:2px;
-            background:#d4af37;
-            transition:0.3s;
+
+        .menu li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 2px;
+            background: #d4af37;
+            transition: 0.3s;
         }
-        
-        .menu li a:hover{
-            color:#d4af37;
+
+        .menu li a:hover {
+            color: #d4af37;
         }
-        
-        .menu li a:hover::after{
-            width:100%;
+
+        .menu li a:hover::after {
+            width: 100%;
         }
-        
-        .btn{
-            padding:12px 28px;
-            border:none;
-            border-radius:40px;
-            background:#d4af37;
-            color:#000;
-            font-weight:700;
-            cursor:pointer;
-            transition:0.3s;
+
+        .btn {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 40px;
+            background: #d4af37;
+            color: #000;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
         }
-        
-        .btn:hover{
-            transform:scale(1.08);
-            background:#fff;
+
+        .btn:hover {
+            transform: scale(1.08);
+            background: #fff;
         }
-        
+
         /* HERO */
-        
-        .hero{
-            height:calc(100vh - 90px);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            text-align:center;
-            color:#fff;
-            padding:20px;
+
+        .hero {
+            height: calc(100vh - 90px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
         }
-        
-        .hero-content{
-            max-width:800px;
+
+        .hero-content {
+            max-width: 800px;
         }
-        
-        .hero h1{
-            font-size:72px;
-            margin-bottom:20px;
-            text-transform:uppercase;
-            letter-spacing:4px;
+
+        .hero h1 {
+            font-size: 72px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
         }
-        
-        .hero h1 span{
-            color:#d4af37;
+
+        .hero h1 span {
+            color: #d4af37;
         }
-        
-        .hero p{
-            font-size:20px;
-            line-height:1.8;
-            margin-bottom:35px;
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 35px;
         }
-        
-        .hero-buttons{
-            display:flex;
-            justify-content:center;
-            gap:20px;
-            flex-wrap:wrap;
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        
-        .hero-buttons a{
-            text-decoration:none;
-            padding:15px 35px;
-            border-radius:40px;
-            font-weight:600;
-            transition:0.3s;
+
+        .hero-buttons a {
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: 0.3s;
         }
-        
-        .btn-gold{
-            background:#d4af37;
-            color:#000;
+
+        .btn-gold {
+            background: #d4af37;
+            color: #000;
         }
-        
-        .btn-gold:hover{
-            background:#fff;
-            transform:translateY(-4px);
+
+        .btn-gold:hover {
+            background: #fff;
+            transform: translateY(-4px);
         }
-        
-        .btn-outline{
-            border:2px solid #d4af37;
-            color:#fff;
+
+        .btn-outline {
+            border: 2px solid #d4af37;
+            color: #fff;
         }
-        
-        .btn-outline:hover{
-            background:#d4af37;
-            color:#000;
+
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #000;
         }
-        
+
         /* RESPONSIVO */
-        
-        @media(max-width:900px){
-        
-            .navbar{
-                flex-direction:column;
-                gap:20px;
+
+        @media(max-width:900px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
             }
-        
-            .menu{
-                flex-wrap:wrap;
-                justify-content:center;
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
             }
-        
-            .hero h1{
-                font-size:48px;
+
+            .hero h1 {
+                font-size: 48px;
             }
-        
-            .hero p{
-                font-size:16px;
+
+            .hero p {
+                font-size: 16px;
             }
-        
+
         }
-        footer{
-        text-align:left;
-        padding:20px;
-    }
-    
-    footer p{
-        color:#fff;
-        font-size:20px;
-        font-weight:600;
-    }
-        
-        </style>
+
+        footer {
+            text-align: left;
+            padding: 20px;
+        }
+
+        footer p {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+
+
+        body {
+            background: #111;
+        }
+
+        /* SECTION */
+
+        .cr7-section {
+            width: 100%;
+            color: white;
+        }
+
+        /* BANNER */
+
+        .banner {
+            height: 85vh;
+            background:
+                url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1400&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .65);
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner-content h1 {
+            font-size: 70px;
+            color: #FFD700;
+        }
+
+        .banner-content p {
+            max-width: 700px;
+            margin: 20px auto;
+            line-height: 1.8;
+            font-size: 20px;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .buttons button {
+            padding: 14px 28px;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: .3s;
+            background: #FFD700;
+        }
+
+        .buttons button:hover {
+            transform: scale(1.08);
+        }
+
+        /* CONTENT */
+
+        .content {
+            padding: 80px 8%;
+        }
+
+        .content h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 50px;
+            color: #FFD700;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #1d1d1d;
+            width: 320px;
+            padding: 30px;
+            border-radius: 20px;
+            transition: .4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(255, 215, 0, .4);
+        }
+
+        .card h3 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #d4d4d4;
+            line-height: 1.7;
+        }
+
+        /* CARROSSEL */
+
+        .gallery-title {
+            margin-top: 80px;
+        }
+
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 0;
+        }
+
+        .slide {
+            min-width: 350px;
+            height: 220px;
+            border-radius: 20px;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #000;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .footer {
+            background: #000;
+            padding: 50px 20px;
+            margin-top: 80px;
+            border-top: 3px solid #FFD700;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .footer h2 {
+            color: #FFD700;
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            color: #cfcfcf;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .footer-links a:hover {
+            color: #FFD700;
+        }
+
+        .copy {
+            font-size: 14px;
+            color: #888;
+            margin-top: 20px;
+        }
+
+        .historia-title {
+            text-align: center;
+            color: #FFD700;
+            font-size: 50px;
+            margin-top: 100px;
+            margin-bottom: 20px;
+        }
+
+        .historia-text {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            color: #d4d4d4;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .gallery-title {
+            text-align: center;
+            color: #FFD700;
+            font-size: 40px;
+            margin-top: 80px;
+            margin-bottom: 40px;
+        }
+
+        .video-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .video-title {
+            color: #FFD700;
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(255, 215, 0, .3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            display: block;
+        }
+
+        .stats-section {
+            padding: 80px 20px;
+            background: #0f0f0f;
+        }
+
+        .stats-title {
+            text-align: center;
+            font-size: 45px;
+            color: #FFD700;
+            margin-bottom: 60px;
+        }
+
+        .stats-cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stats-card {
+            background: #1b1b1b;
+            width: 280px;
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: .4s;
+            border: 1px solid transparent;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, .3);
+        }
+
+        .stats-card h3 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .stats-card span {
+            display: block;
+            font-size: 55px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .stats-card p {
+            color: #cfcfcf;
+            line-height: 1.7;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <header>
             <nav class="navbar">
-        
+
                 <div class="logo">
                     CR<span>7</span>
                 </div>
-        
+
                 <ul class="menu">
                     <li><a href="#">Início</a></li>
                     <li><a href="#">Carreira</a></li>
@@ -219,17 +532,179 @@
                     <li><a href="#">Galeria</a></li>
                     <li><a href="#">Contato</a></li>
                 </ul>
-        
+
                 <button class="btn">SIUUU</button>
-        
+
             </nav>
         </header>
-        <section>
+        <section class="cr7-section">
 
-        </section>
-        <footer>
-            <p>Gabriel de Melo</p>
-        </footer>
+            <!-- BANNER -->
+
+            <div class="banner">
+
+                <div class="overlay"></div>
+
+                <div class="banner-content">
+                    <h1>Cristiano Ronaldo</h1>
+
+                    <p>
+                        Um dos maiores jogadores da história do futebol,
+                        conhecido pela sua velocidade, gols e mentalidade vencedora.
+                    </p>
+
+                    <div class="buttons">
+
+                        <a href="#historia">
+                            <button>Ver História</button>
+                        </a>
+
+                        <a href="#gols">
+                            <button>Assistir Gols</button>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <!-- SEÇÃO HISTÓRIA -->
+            <h1 id="historia" class="historia-title">
+                📖 História de Cristiano Ronaldo
+            </h1>
+
+            <p class="historia-text">
+                Cristiano Ronaldo dos Santos Aveiro nasceu em Portugal e desde muito jovem
+                demonstrou um enorme talento para o futebol. Ainda criança, sonhava em se tornar
+                um dos maiores jogadores do mundo, treinando diariamente com dedicação e disciplina.
+            </p>
+
+            <p class="historia-text">
+                Sua carreira começou no Sporting, onde chamou atenção pelo seu talento e velocidade.
+                Pouco tempo depois, foi contratado pelo Manchester United, clube em que conquistou
+                títulos importantes e passou a ser reconhecido mundialmente.
+            </p>
+
+            <p class="historia-text">
+                Ao longo dos anos, Cristiano Ronaldo atuou por gigantes do futebol europeu,
+                quebrando recordes, conquistando diversas Champions League, campeonatos nacionais
+                e prêmios individuais. Sua passagem pelo Real Madrid marcou a história do clube,
+                tornando-se um dos maiores artilheiros de todos os tempos.
+            </p>
+
+            <p class="historia-text">
+                Além do sucesso nos clubes, Cristiano também se tornou o maior ídolo da seleção
+                portuguesa, conquistando títulos históricos e inspirando milhões de fãs ao redor
+                do planeta com sua mentalidade vencedora, esforço e paixão pelo esporte.
+            </p>
+
+            <section id="gols" class="video-section">
+
+                <h2 class="video-title">
+                    🎥 Melhores Gols de Cristiano Ronaldo
+                </h2>
+
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/OUKGsb8CpF8" title="Gols de Cristiano Ronaldo"
+                        frameborder="0" allowfullscreen>
+                    </iframe>
+                </div>
+
+                <h2 class="stats-title">🏆 Cristiano Ronaldo em Números</h2>
+
+                <div class="stats-cards">
+
+                    <div class="stats-card">
+                        <h3>⚽ Gols</h3>
+                        <span>900+</span>
+                        <p>
+                            Mais de 900 gols marcados durante sua carreira profissional.
+                        </p>
+                    </div>
+
+                    <div class="stats-card">
+                        <h3>🏅 Títulos</h3>
+                        <span>35+</span>
+                        <p>
+                            Campeonatos nacionais, internacionais e continentais conquistados.
+                        </p>
+                    </div>
+
+                    <div class="stats-card">
+                        <h3>🥇 Títulos Individuais</h3>
+                        <span>60+</span>
+                        <p>
+                            Diversos prêmios de melhor jogador, artilheiro e recordista.
+                        </p>
+                    </div>
+
+                    <div class="stats-card">
+                        <h3>⚽ Bolas de Ouro</h3>
+                        <span>5</span>
+                        <p>
+                            Cristiano Ronaldo venceu cinco vezes o prêmio de melhor jogador do mundo.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- CARROSSEL -->
+
+            <h2 class="gallery-title">📸 Galeria</h2>
+
+            <div class="carousel">
+
+                <div class="slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop">
+                </div>
+
+                <div class="slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?q=80&w=1200&auto=format&fit=crop">
+                </div>
+
+                <div class="slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?q=80&w=1200&auto=format&fit=crop">
+                </div>
+
+            </div>
+
+    </div>
+
+    </section>
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <h2>Cristiano Ronaldo ⚽</h2>
+
+            <p>
+                Site dedicado aos fãs de um dos maiores jogadores da história do futebol.
+            </p>
+
+            <div class="footer-links">
+                <a href="#">Início</a>
+                <a href="#">Carreira</a>
+                <a href="#">Títulos</a>
+                <a href="#">Galeria</a>
+            </div>
+
+            <p class="copy">
+                © 2026 Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
     </div>
 </body>
+
 </html>
